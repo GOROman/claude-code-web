@@ -1,5 +1,7 @@
 # M5Stack Core2 LED Blink Application
 
+**日本語 | [English](README_EN.md)**
+
 M5Stack Core2向けのシンプルなLEDチカチカ（点滅）アプリケーションです。
 
 ## 機能
@@ -59,7 +61,8 @@ claude-code-web/
 ├── src/
 │   └── main.cpp          # メインプログラム
 ├── platformio.ini        # PlatformIO設定ファイル
-└── README.md            # このファイル
+├── README.md            # このファイル（日本語）
+└── README_EN.md         # 英語版
 ```
 
 ## コードの説明
