@@ -1,115 +1,115 @@
 # M5Stack Core2 LED Blink Application
 
-**日本語 | [English](README_EN.md)**
+**English | [日本語](README.ja.md)**
 
-M5Stack Core2向けのシンプルなLEDチカチカ（点滅）アプリケーションです。
+A simple LED blink application for M5Stack Core2.
 
-## 機能
+## Features
 
-- 内蔵LED（GPIO10）を500ms間隔で点滅
-- ディスプレイにLEDの状態（ON/OFF）を表示
-- シリアルモニターにLEDの状態を出力
+- Blink built-in LED (GPIO10) at 500ms intervals
+- Display LED status (ON/OFF) on screen
+- Output LED status to serial monitor
 
-## 必要なもの
+## Requirements
 
-- M5Stack Core2デバイス
-- PlatformIO（VSCode拡張機能またはCLI）
-- USBケーブル（Type-C）
+- M5Stack Core2 device
+- PlatformIO (VSCode extension or CLI)
+- USB cable (Type-C)
 
-## セットアップ
+## Setup
 
-### 1. PlatformIOのインストール
+### 1. Install PlatformIO
 
-#### VSCode拡張機能として
-1. VSCodeを開く
-2. 拡張機能パネルを開く（Ctrl+Shift+X）
-3. "PlatformIO IDE"を検索してインストール
+#### As VSCode Extension
+1. Open VSCode
+2. Open Extensions panel (Ctrl+Shift+X)
+3. Search for "PlatformIO IDE" and install
 
-#### CLIとして
+#### As CLI
 ```bash
 pip install platformio
 ```
 
-### 2. プロジェクトのビルド
+### 2. Build Project
 
 ```bash
-# プロジェクトディレクトリに移動
+# Navigate to project directory
 cd claude-code-web
 
-# 依存関係のインストールとビルド
+# Install dependencies and build
 pio run
 ```
 
-### 3. M5Stack Core2への書き込み
+### 3. Upload to M5Stack Core2
 
 ```bash
-# デバイスを接続してアップロード
+# Connect device and upload
 pio run --target upload
 ```
 
-### 4. シリアルモニターで確認
+### 4. Monitor with Serial Monitor
 
 ```bash
-# シリアルモニターを開く
+# Open serial monitor
 pio device monitor
 ```
 
-## プロジェクト構造
+## Project Structure
 
 ```
 claude-code-web/
 ├── src/
-│   └── main.cpp          # メインプログラム
-├── platformio.ini        # PlatformIO設定ファイル
-├── README.md            # このファイル（日本語）
-└── README_EN.md         # 英語版
+│   └── main.cpp          # Main program
+├── platformio.ini        # PlatformIO configuration
+├── README.md            # This file (English)
+└── README.ja.md         # Japanese version
 ```
 
-## コードの説明
+## Code Explanation
 
 ### main.cpp
 
-- `setup()`: M5Stack Core2とLEDピンを初期化し、ディスプレイに初期画面を表示
-- `loop()`: 500ms間隔でLEDの状態を反転し、ディスプレイとシリアル出力を更新
+- `setup()`: Initialize M5Stack Core2 and LED pin, display initial screen
+- `loop()`: Toggle LED state every 500ms, update display and serial output
 
-## カスタマイズ
+## Customization
 
-### 点滅間隔の変更
+### Change Blink Interval
 
-`src/main.cpp`の以下の行を変更してください：
-
-```cpp
-const long interval = 500; // ミリ秒単位（500 = 0.5秒）
-```
-
-### LEDピンの変更
-
-M5Stack Core2の内蔵LEDはGPIO10に接続されています。他のピンを使用する場合は、以下の行を変更してください：
+Modify the following line in `src/main.cpp`:
 
 ```cpp
-pinMode(GPIO_NUM_10, OUTPUT); // GPIO_NUM_10を任意のピン番号に変更
+const long interval = 500; // Milliseconds (500 = 0.5 seconds)
 ```
 
-## トラブルシューティング
+### Change LED Pin
 
-### デバイスが認識されない場合
+The built-in LED on M5Stack Core2 is connected to GPIO10. To use a different pin, modify:
 
-1. USBケーブルがデータ転送対応か確認
-2. ドライバが正しくインストールされているか確認（CP210xドライバ）
-3. デバイスが正しく接続されているか確認
+```cpp
+pinMode(GPIO_NUM_10, OUTPUT); // Change GPIO_NUM_10 to any pin number
+```
 
-### ビルドエラーが発生する場合
+## Troubleshooting
+
+### Device Not Recognized
+
+1. Verify USB cable supports data transfer
+2. Check if drivers are correctly installed (CP210x driver)
+3. Verify device is properly connected
+
+### Build Errors
 
 ```bash
-# プラットフォームとライブラリを再インストール
+# Reinstall platform and libraries
 pio pkg uninstall
 pio run
 ```
 
-## ライセンス
+## License
 
-このプロジェクトはMITライセンスの下で公開されています。
+This project is released under the MIT License.
 
-## 作成者
+## Author
 
 Generated with Claude Code
