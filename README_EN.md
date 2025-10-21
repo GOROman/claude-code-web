@@ -61,7 +61,7 @@ claude-code-web/
 ├── src/
 │   └── main.cpp          # Main program
 ├── platformio.ini        # PlatformIO configuration
-├── README.md            # This file (Japanese)
+├── README.md            # Japanese version
 └── README_EN.md         # English version
 ```
 
